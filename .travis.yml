@@ -30,6 +30,7 @@ matrix:
       env: DC=gdc
 
 script:
+ - dub fetch --cache=user vibe-d:data # It's needed for unittests
  - dub test -b unittest-cov --compiler=${DC}
 after_success:
  - bash <(curl -s https://codecov.io/bash) -cF unittests
